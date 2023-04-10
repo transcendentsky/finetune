@@ -1,0 +1,46 @@
+####  basic configs
+# dataset:
+#   name: 'Cephalometric'
+#   pth: '/home1/quanquan/datasets/Cephalometric/'
+
+
+# ----------------------  Common Configs  --------------------------
+base:
+  base_dir: "/home1/quanquan/code/projects/medical-guangdong/runs/sam/"
+  experiment: 'debug'
+  tag: ''
+  stage: ''
+logger:
+  mode: ['tb', ]
+#  mode: ''
+  recorder_reduction: 'mean'
+
+training:
+  save_mode: ['all','best', 'latest'] # 'all',
+  batch_size : 14
+  num_workers : 4
+  num_epochs : 10000  # epochs
+  use_amp: true
+  save_interval : 20
+  val_check_interval: 50
+  load_pretrain_model: false
+
+  # optim:
+  lr: 0.0008
+  decay_step: 2000
+  decay_gamma: 0.8
+  weight_decay: 0.0001
+  alpha: 0.99
+
+test:
+  batch_size: 8
+# parser.add_argument('--n_threads', type=int, default=8, help='number of threads for data loading')
+# parser.add_argument('--cpu', type=bool, default=False, help='use cpu to train')
+# parser.add_argument('--gpu_id', type=list, default=[0], help='use gpu')
+# parser.add_argument('--n_labels', type=int, default=3, help='number of classes') #分割直肠为2，分割直肠和肿瘤为3
+# parser.add_argument('--dataset_path', default='../train', help='trainset root path')
+# parser.add_argument('--testset_path', default='../test', help='testset root path')
+# parser.add_argument('--save', default='../files', help='save path of trained model')
+# parser.add_argument('--batch_size', type=int, default=2, help='batch size of trainset')
+# parser.add_argument('--lr', type=float, default=0.0001, help='learning rate')
+# parser.add_argument('--epochs', type=int, default=500, help='number of epochs to train')
